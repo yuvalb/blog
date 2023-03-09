@@ -14,4 +14,5 @@ h1 a {
 
 .content {
   padding: 0 2em;
+  box-sizing: border-box;
 }
