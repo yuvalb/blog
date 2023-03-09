@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.content {
+  padding: 0 2em;
+}

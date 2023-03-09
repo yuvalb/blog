@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{ page.title }}</title>
-    </head>
-    <body>
-    <div>
-      <h2>{{ page.title }}</h2>
-      {{ page.content }}
-    </div>
+  <head>
+    {% include "head.liquid" %}
+  </head>
+  <body>
+    <header>
+      {% include "header.liquid" %}
+    </header>
+    <main>
+      <div class="content">
+        <h2>{{ page.title }}</h2>
+        {{ page.content }}
+      </div>
+    </main>
+    <footer>
+      {% include "footer.liquid" %}
+    </footer>
   </body>
 </html>
