@@ -1,15 +1,20 @@
 ---
 layout: default.liquid
-title: My Blog
+title: "Blog: Computer Duck"
 ---
 
-<div style="display: flex; justify-content: center;">
-  <ul style="list-style: none; padding: 2.5em; gap: 1em">
+<div style="max-width: 632px; margin: 0 auto; display: flex; justify-content: center;">
+  <ul class="posts" style="width: 100%; border-bottom: 1px solid; padding: 0; list-style: none; gap: 1em">
     {% for post in collections.posts.pages %}
-      <li style="margin: 2em 0; padding: 1em; border: 1px solid black">
-        <a href="{{ post.permalink }}">
-          {{ post.title }}
-        </a>
+      <li style="padding: 1em; border-top: 1px solid">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5em">
+          <h2>
+            <a href="{{ post.permalink }}">
+              {{ post.title }}
+            </a>
+          </h2>
+          <h4>{{ post.data.date }}</h3>
+        </div>
       </li>
     {% endfor %}
   </ul>
