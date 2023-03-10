@@ -1,0 +1,48 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  style="
+    margin: auto;
+    display: block;
+    z-index: 1;
+    position: relative;
+    shape-rendering: auto;
+  "
+  width="100%"
+  height="100%"
+>
+  <g transform="scale(1,1)">
+    <defs>
+      <filter id="blur-new7dv5i35d-1" x="-1" y="-1" width="3" height="3">
+        <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+      </filter>
+      <filter id="blur-new7dv5i35d-2" x="-1" y="-1" width="3" height="3">
+        <feGaussianBlur stdDeviation="1.5"></feGaussianBlur>
+      </filter>
+      <filter id="blur-new7dv5i35d-3" x="-1" y="-1" width="3" height="3">
+        <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+      </filter>
+    </defs>
+    {% set offsets = [10,22,30,35,40,42,56,60,69,75,80,90] %} {% for i in
+    offsets %}
+    <circle
+      cx="{{ i }}%"
+      cy="0"
+      transform="translate(0 {{ 5 }})"
+      r="{{ (((i + 1) * 1563) % 1000) / 50.0 + 35 }}"
+      fill="#000000"
+      opacity="{{ (((i + 1) * 1563) % 1000) / 4000.0 }}"
+    >
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        begin="{{ (((i + 1) * 1923) % 1000) / -25.0  }}"
+        dur="{{ (((i + 1) * 2234) % 1000) / 100.0 + 30}}s"
+        repeatCount="indefinite"
+        keyTimes="0;1"
+        values="0 {{ config.extra.header_max_height + 70 }};0 -110"
+      />
+    </circle>
+    {% endfor %}
+  </g>
+</svg>

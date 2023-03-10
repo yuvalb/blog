@@ -1,20 +1,17 @@
 ---
-layout: post.liquid
-
 title: How I made this blog
-is_draft: true
-data:
-  date: "2023-03-09"
+date: 2023-03-10
+draft: true
 ---
 
 # This is our first Post!
 
 Welcome to the first post ever on cobalt.rs!
 
-```js
+```ts
 const a = 500;
 
-function f(a) {
+function f(a: number) {
   return a + 8;
 }
 

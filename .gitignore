@@ -13,5 +13,5 @@ Cargo.lock
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
 
-# Ignore cobalt generated site
-_site
+# Ignore zola generated site
+public

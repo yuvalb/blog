@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+  {# {{ __tera_context }} #}
+  {% set blog_section = get_section(path = "blog/_index.md") %}
+  {# {{ blog_section.pages | json_encode }} #}
+
+  <div style="max-width: 632px; margin: 0 auto; display: flex; justify-content: center;">
+    <ul class="posts" style="width: 100%; border-bottom: 1px solid; padding: 0; list-style: none; gap: 1em">
+      {% for post in blog_section.pages %}
+        <li style="padding: 0.5em; border-top: 1px solid">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5em">
+            <h2>
+              <a href="{{ post.permalink }}">
+                {{ post.title }}
+              </a>
+            </h2>
+            <h4>{{ post.date }}</h3>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock content %}

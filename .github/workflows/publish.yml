@@ -1,30 +1,16 @@
-name: Publish
+name: Build and deploy GH Pages
 on:
   push:
     branches:
       - main
-permissions:
-  contents: write
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install
-        run: |
-          curl -LSfs https://raw.githubusercontent.com/crate-ci/gh-install/master/v1/install.sh | \
-            sh -s -- \
-            --git cobalt-org/cobalt.rs \
-            --crate cobalt \
-            --force \
-            --target x86_64-unknown-linux-gnu \
-            --tag v0.16.5
-          echo COBALT_BIN=~/.cargo/bin/cobalt >> $GITHUB_ENV
-      - name: Build
-        run: ${{ env.COBALT_BIN }} build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: _site
+      - name: checkout
+        uses: actions/checkout@v3.0.0
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@v0.16.1-1
+        env:
+          PAGES_BRANCH: gh-pages
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
