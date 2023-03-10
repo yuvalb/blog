@@ -5,3 +5,6 @@ site:
   base_url: https://yuvalb.github.io/blog/
 posts:
   rss: rss.xml
+syntax_highlight:
+  theme: "base16-ocean.dark"
+  enabled: true
