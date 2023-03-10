@@ -1,12 +1,12 @@
 ---
-title: How I made this blog
+title: First post
 date: 2023-03-10
-draft: true
+draft: false
 ---
 
 # This is our first Post!
 
-Welcome to the first post ever on cobalt.rs!
+This is a temporary post just to make sure everything's connected. More will come soon!
 
 ```ts
 const a = 500;
@@ -17,3 +17,5 @@ function f(a: number) {
 
 console.log("result: " + f(a));
 ```
+
+Above is some code to test out syntax highlighting.
