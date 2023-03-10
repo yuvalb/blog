@@ -12,14 +12,16 @@ main {
   padding-bottom: 2em;
 }
 
-.header h1 {
-  font-weight: bold;
-  letter-spacing: 0.2em;
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9;
-}
+.header {
+  & h1 {
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9;
+  }
 
-.header h1 a:not(:hover) {
-  text-decoration: none;
+  & h1 a:not(:hover) {
+    text-decoration: none;
+  }
 }
 
 .content-wrapper {
@@ -35,6 +37,7 @@ main {
 
 .markdown-body {
   font-size: 16px;
+  font-weight: 500;
 
   & h1 {
     font-size: 2em;
@@ -45,28 +48,30 @@ main {
   }
 }
 
-.posts h2,
-.posts h3,
-.posts h4 {
-  margin: 0;
-}
+.posts {
+  & h2,
+  & h3,
+  & h4 {
+    margin: 0;
+  }
 
-.posts h2 {
-  font-size: 22px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
+  & h2 {
+    font-size: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-.posts h4 {
-  font-size: 16px;
-  opacity: 0.6;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-}
+  & h4 {
+    font-size: 16px;
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
 
-.posts a:not(:hover) {
-  text-decoration: none;
+  & a:not(:hover) {
+    text-decoration: none;
+  }
 }
 
 .footer {
@@ -76,21 +81,21 @@ main {
 
   border-top: 1px dashed rgb(179, 179, 179);
   margin-top: 1em;
-}
 
-.footer .icon-container {
-  margin: 1em 0;
-  display: flex;
-  gap: 1.5em;
-}
+  & .icon-container {
+    margin: 1em 0;
+    display: flex;
+    gap: 1.5em;
+  }
 
-.footer i {
-  font-size: 1.5em;
-}
+  & i {
+    font-size: 1.5em;
 
-.footer i:hover {
-  color: rgb(6, 134, 208);
-  cursor: pointer;
+    &:hover {
+      color: rgb(6, 134, 208);
+      cursor: pointer;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

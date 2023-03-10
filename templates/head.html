@@ -1,7 +1,12 @@
 <meta charset="utf-8" />
 <title>{{ config.title }}</title>
 {# Favicon #}
-<link rel="icon" type="image/x-icon" href="{{ config.base_url }}/favicon.ico" />
+<link
+  href="favicon-light.ico"
+  rel="icon"
+  media="(prefers-color-scheme: light)"
+/>
+<link href="favicon-dark.ico" rel="icon" media="(prefers-color-scheme: dark)" />
 {# Global styles #}
 <link rel="stylesheet" href="{{ config.base_url }}/styles.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
