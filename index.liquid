@@ -1,0 +1,16 @@
+---
+layout: default.liquid
+title: My Blog
+---
+
+<div style="display: flex; justify-content: center;">
+  <ul style="list-style: none; padding: 2.5em; gap: 1em">
+    {% for post in collections.posts.pages %}
+      <li style="margin: 2em 0; padding: 1em; border: 1px solid black">
+        <a href="{{ post.permalink }}">
+          {{ post.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

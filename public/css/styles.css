@@ -2,17 +2,50 @@ body {
   margin: 0;
 }
 
-h1 {
-  color: white;
-  font-family: "Roboto", sans-serif;
+a {
+  color: inherit;
 }
 
-h1 a {
-  color: inherit;
+.header h1 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9;
+}
+
+.header h1 a {
   text-decoration: none;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .content {
   padding: 0 2em;
   box-sizing: border-box;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  border-top: 1px dashed rgb(179, 179, 179);
+  margin-top: 1em;
+}
+
+.footer .icon-container {
+  margin: 1em 0;
+  display: flex;
+  gap: 1em;
+}
+
+.footer i {
+  font-size: 1.5em;
+}
+
+.footer i:hover {
+  color: rgb(6, 134, 208);
+  cursor: pointer;
 }

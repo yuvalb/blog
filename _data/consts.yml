@@ -1,2 +1,4 @@
 header:
-  max-height: 80
+  max-height: 75
+content:
+  max-width: 960
