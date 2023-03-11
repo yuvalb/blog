@@ -2,6 +2,6 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="pages-container">
-    {{ macros::pages_list(pages=paginator.pages) }}
+    {{ macros::pages_list(pages=paginator.pages, title=section.title) }}
   </div>
 {% endblock content %}

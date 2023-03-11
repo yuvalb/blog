@@ -1,11 +1,12 @@
-{% macro pages_list(pages) %}
+{% macro pages_list(pages, title=false) %}
+{%  if title %} <h4 class="title-light">{{ title | safe }}</h4> {% endif %}
 <ul class="posts" style="width: 100%; border-bottom: 1px solid; padding: 0; list-style: none; gap: 1em">
     {% for post in pages %}
       <li style="padding: 0.5em; border-top: 1px solid">
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5em">
           <h2>
             <a href="{{ post.permalink }}">
-              {{ post.title | title }}
+              {{ post.title }}
             </a>
           </h2>
         </div>
@@ -27,3 +28,12 @@
     {% endfor %}
   </ul>
 {% endmacro pages_list %}
+
+{% macro index_title_latest() %}
+    <h4 class="title-light">Latest <a href="{{ config.base_url }}/blog">blog</a> posts</h4>
+{% endmacro index_title_latest %}
+
+{% macro term_title() %}
+    <a href="{{ config.base_url }}/{{ taxonomy.name }}">{{ taxonomy.name | capitalize }}</a>:
+    <a href="{{ term.permalink }}">#{{ term.name }}</a>
+{% endmacro term_title %}

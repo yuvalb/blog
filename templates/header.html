@@ -7,13 +7,17 @@
                   height: 100%;
                   margin: 0 auto;
                   display: flex;
-                  justify-content: center;
+                  justify-content: space-between;
                   align-items: center;
                 ">
     <h1>
       <a href="{{ config.base_url }}">{{ config.title }}</a>
     </h1>
-    <i class="fa-regular fa-duck"></i>
-    <nav></nav>
+    <nav>
+        <div style="display: flex; gap: 1em">
+            <a href="{{ config.base_url }}">Home</a>
+            <a href="{{ config.base_url }}/blog">Blog</a>
+        </div>
+    </nav>
   </div>
 </div>

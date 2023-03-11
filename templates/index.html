@@ -3,6 +3,6 @@
 {% block content %}
   {% set blog_section = get_section(path = "blog/_index.md") %}
   <div class="pages-container">
-    {{ macros::pages_list(pages=blog_section.pages) }}
+    {{ macros::pages_list(pages=blog_section.pages, title=macros::index_title_latest()) }}
   </div>
 {% endblock content %}
