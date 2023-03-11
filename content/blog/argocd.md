@@ -1,10 +1,10 @@
 +++
-title = "First post"
+title = "Deploying Argocd to kubernetes"
 date = 2023-03-10
-draft = false
+draft = true
 
 [taxonomies]
-tags = ["off-topic"]
+tags = ["devops"]
 +++
 
 # This is our first Post!

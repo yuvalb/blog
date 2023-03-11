@@ -1,0 +1,10 @@
+{% import "macros.html" as macros %}
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="centered-title">
+    <a href="{{ config.base_url }}/{{ taxonomy.name }}">{{ taxonomy.name | capitalize }}</a>: 
+    <a href="{{ term.permalink }}">#{{ term.name }}</a></h2>
+<div class="pages-container">
+    {{ macros::pages_list(pages=term.pages) }}
+</div>
+{% endblock content %}

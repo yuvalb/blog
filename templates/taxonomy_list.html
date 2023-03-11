@@ -1,0 +1,11 @@
+{% import "macros.html" as macros %}
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="centered-title">{{ taxonomy.name  }}</h1>
+    {% for term in terms %}
+        <div class="pages-container">
+            <h4 style="margin: 1em 0 0 0"><a href="{{ term.permalink }}">#{{ term.name  }}</a></h4>
+            {{ macros::pages_list(pages=term.pages) }}
+        </div>
+    {% endfor %}
+{% endblock content %}
