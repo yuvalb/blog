@@ -5,9 +5,6 @@
   </head>
   <body>
     <div class="content-wrapper">
-      <div
-        style="max-width: {{ config.extra.content_max_width }}px; flex: 1;"
-      >
         <header>
           {% block header %} {% include "header.html" %}{% endblock header %}
         </header>
@@ -19,7 +16,6 @@
         <footer>
           {% block footer %}{% include "footer.html" %}{% endblock footer %}
         </footer>
-      </div>
     </div>
   </body>
 </html>

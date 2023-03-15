@@ -1,6 +1,6 @@
 # The URL the site will be built for
 base_url = "https://yuvalb.github.io/blog"
-title = "Computer Duck"
+title = "yuvalb"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -22,5 +22,3 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-header_max_height = 75
-content_max_width = 960

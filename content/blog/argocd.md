@@ -22,3 +22,13 @@ console.log("result: " + f(a));
 ```
 
 Above is some code to test out syntax highlighting.
+
+## This is a small header
+
+And here will come a smaller one:
+
+---
+
+### Even smaller header
+
+Told you so.
