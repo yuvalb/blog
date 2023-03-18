@@ -2,6 +2,7 @@
 title = "Deploying Argocd to kubernetes"
 date = 2023-03-10
 draft = true
+slug = "deploy-cluster-argocd"
 
 [taxonomies]
 tags = ["devops"]
