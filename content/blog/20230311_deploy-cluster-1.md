@@ -1,6 +1,6 @@
 +++
-title = "Deploying Argocd to kubernetes"
-date = 2023-03-10
+title = "My Kubernetes Cluster Part 1: ArgoCD"
+date = 2023-03-11
 draft = true
 slug = "deploy-cluster-argocd"
 
@@ -8,28 +8,9 @@ slug = "deploy-cluster-argocd"
 tags = ["devops"]
 +++
 
-# This is our first Post!
+# Overview
 
-This is a temporary post just to make sure everything's connected. More will come soon!
+This is the first in a series of blog posts in which I will document and explain how I deploy my flavor of Kubernetes cluster.
 
-```ts
-const a = 500;
-
-function f(a: number) {
-  return a + 8;
-}
-
-console.log("result: " + f(a));
-```
-
-Above is some code to test out syntax highlighting.
-
-## This is a small header
-
-And here will come a smaller one:
-
----
-
-### Even smaller header
-
-Told you so.
+My cluster's goal will be to enable deploying my hobby applications and passion projects. In a sense, this cluster is also a passion project 😄.
+It will allow for scale
