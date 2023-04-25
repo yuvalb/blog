@@ -2,17 +2,20 @@
 <title>{{ config.title }}</title>
 {# Favicon #}
 <link
-  href="{{ config.base_url }}/favicon-light.ico"
+  href="{{ get_url(path="/favicon-light.ico") }}"
   rel="icon"
   media="(prefers-color-scheme: light)"
 />
 <link
-  href="{{ config.base_url }}/favicon-dark.ico"
+  href="{{ get_url(path="/favicon-dark.ico") }}"
   rel="icon"
   media="(prefers-color-scheme: dark)"
 />
 {# Global styles #}
-<link rel="stylesheet" href="{{ config.base_url }}/styles.css" />
+<link rel="stylesheet" type="text/css" href="{{ get_url(path="theme/light.css") }}"/>
+<link rel="stylesheet" type="text/css" href="{{ get_url(path="theme/dark.css") }}" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" type="text/css" href="{{ get_url(path="main.css") }}"/>
+{# Fonts #}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link

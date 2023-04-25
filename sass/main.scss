@@ -1,0 +1,36 @@
+@import "styles.scss";
+@import "parts/_code.scss";
+
+:root {
+  /* Fonts */
+  --text-font: "Roboto", sans-serif;
+}
+
+html {
+  background-color: var(--bg-0);
+  color: var(--text-0);
+  font-family: var(--text-font);
+  line-height: 1.5em;
+}
+
+body {
+  margin: 0;
+}
+
+@media all and (min-width: 640px) {
+  html {
+    font-size: 16.5px;
+  }
+}
+
+@media all and (min-width: 720px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media all and (min-width: 960px) {
+  html {
+    font-size: 18px;
+  }
+}

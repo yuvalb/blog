@@ -12,7 +12,9 @@ This is the first in a series of blog posts in which I will document and walk yo
 
 My cluster's goal will be to enable deploying my hobby applications and passion projects. In a sense, this cluster is also a passion project 😄.
 
-## 1. The Requirements
+## 1. The Motivation
+
+It's not a trivial matter to be the owner of a kubernetes cluster, and might require some excuses. 
 
 Before starting most projects, I find it best to first describe my goals in the form of requirements to meet - so I can later measure my success.
 
