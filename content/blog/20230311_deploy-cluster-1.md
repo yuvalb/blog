@@ -88,6 +88,34 @@ data:
 
 replace `<name>` with your account name
 
+Create an role and assign it to your user in a new `cluster/argocd/templates/argocd-rbac-cm.yaml` file.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.default: role:readonly
+  policy.csv: |
+    p, role:org-admin, applications, *, */*, allow
+    p, role:org-admin, clusters, get, *, allow
+    p, role:org-admin, repositories, get, *, allow
+    p, role:org-admin, repositories, create, *, allow
+    p, role:org-admin, repositories, update, *, allow
+    p, role:org-admin, repositories, delete, *, allow
+    p, role:org-admin, projects, get, *, allow
+    p, role:org-admin, projects, create, *, allow
+    p, role:org-admin, projects, update, *, allow
+    p, role:org-admin, projects, delete, *, allow
+    p, role:org-admin, logs, get, *, allow
+    p, role:org-admin, exec, create, */*, allow
+
+    g, yuvalb, role:org-admin
+    g, uric, role:org-admin
+```
+
 upgrade the chart
 
 ```sh
