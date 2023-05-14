@@ -1,5 +1,5 @@
 +++
-title = "My Kubernetes Cluster Part 1: Setup Helm chart repository and deploy an app from a chart"
+title = "My Kubernetes Cluster Part 2: Setup Helm chart repository and deploy an app from a chart"
 date = 2023-03-12
 draft = true
 slug = "deploy-cluster-argocd2"
@@ -157,6 +157,8 @@ Createa a new chart
 helm create base-service
 ```
 
+> Note: I am using helm v3.11.1 which creates a new chart with the following resources: deployment, hpa, ingress, service, serviceaccount. If this is not the case for your version from the future, you should apply my recommendations to your version of the created chart - or create a chart equivalent to mine.
+
 2. Create an app from this chart
 
 ```sh
@@ -178,6 +180,27 @@ dependencies:
     repository: file://../../charts/base-service
 ```
 
+Finally, since we want our app to define the base-service chart's values, we will reanme the `values.yaml` file in `charts/base-service/values.yaml` to `values-example.yaml` and make it our app's values file:
+
+```sh
+# from cluster directory
+
+# Copy the original values file over to our app, indented under "base-service"
+{ echo "base-service:"; sed 's/^/\t/' ./charts/base-service/values.yaml; } > ./apps/test/values.yaml
+
+# Rename the base-service chart's values.yaml file to values-example.yaml
+mv ./charts/base-service/values.yaml ./charts/base-service/values-example.yaml
+```
+
+Notice that we put the contents of the original values file under the alias used for this chart in our example app:
+
+```yaml
+base-service:
+  # Contents of the original file indented by 1 tab
+```
+
+This pattern allows us to mix and match multiple charts and their values in our app.
+
 3. Add an app to app of apps
 
 ```yaml
@@ -193,9 +216,18 @@ spec:
     repoURL: https://github.com/yuvalb/taskdag-k8s
     targetRevision: HEAD
     path: apps/example
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: example
+```
+
+create your target namespace
+
+```sh
+kubectl create namespace example
 ```
 
 Push to repo and refresh app in argocd.

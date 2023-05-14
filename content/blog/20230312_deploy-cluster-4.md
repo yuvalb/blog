@@ -1,8 +1,8 @@
 +++
-title = "Helm charts"
-date = 2023-03-13
+title = "Vault"
+date = 2023-03-12
 draft = true
-slug = "deploy-cluster-argocd3"
+slug = "deploy-cluster-argocd2"
 
 [taxonomies]
 tags = ["devops"]
