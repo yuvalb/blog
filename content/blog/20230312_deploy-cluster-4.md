@@ -1,35 +1,27 @@
 +++
-title = "Vault"
-date = 2023-03-12
+title = "My Kubernetes Cluster Part 4: Logging and Monitoring with Loki, Prometheus and Grafana"
+date = 2023-03-13
 draft = true
-slug = "deploy-cluster-argocd2"
+slug = "deploy-cluster-argocd3"
 
 [taxonomies]
 tags = ["devops"]
 +++
 
-# This is our first Post!
+Find out grafana password:
 
-This is a temporary post just to make sure everything's connected. More will come soon!
-
-```ts
-const a = 500;
-
-function f(a: number) {
-  return a + 8;
-}
-
-console.log("result: " + f(a));
+```sh
+kubectl get secret --namespace grafana cluster-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
-Above is some code to test out syntax highlighting.
+Add datasource through connections > your-connections > add data source and pick loki.
 
-## This is a small header
+In URL: http://loki-gateway.grafana-loki.svc.cluster.local
 
-And here will come a smaller one:
+Add custom HTTP header: `X-Scope-OrgID` with value of 1
 
----
+Click `Save & test` and you should see a success message.
 
-### Even smaller header
+To test everything is working, you can import a basic dashboard.
 
-Told you so.
+Go to [this](https://grafana.com/grafana/dashboards/15141-kubernetes-service-logs/) url and copy that dashboard Id. Then in grafana go to

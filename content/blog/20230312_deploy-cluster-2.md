@@ -159,6 +159,17 @@ helm create base-service
 
 > Note: I am using helm v3.11.1 which creates a new chart with the following resources: deployment, hpa, ingress, service, serviceaccount. If this is not the case for your version from the future, you should apply my recommendations to your version of the created chart - or create a chart equivalent to mine.
 
+> Optional: It's better practice to separate the cluster's nodes for our apps from the nodes used for our cluster, so they will not interfere with each other. For this, my cluster on DigitalOcean has a node pool called `pool-apps`.
+> Assigning apps to nodes in this pool is done by updating the base service's values file to have a default `nodeSelctor`:
+
+```yaml
+# charts/base-service/values.yaml
+nodeSelector:
+  doks.digitalocean.com/node-pool: pool-apps
+```
+
+Note that the implementation and label selector might change between cloud/cluster providers.
+
 2. Create an app from this chart
 
 ```sh
@@ -180,16 +191,13 @@ dependencies:
     repository: file://../../charts/base-service
 ```
 
-Finally, since we want our app to define the base-service chart's values, we will reanme the `values.yaml` file in `charts/base-service/values.yaml` to `values-example.yaml` and make it our app's values file:
+Finally, since we want our app to define the base-service chart's values, we will copy the `values.yaml` file in `charts/base-service/values.yaml` and make it our app's values file:
 
 ```sh
 # from cluster directory
 
 # Copy the original values file over to our app, indented under "base-service"
 { echo "base-service:"; sed 's/^/\t/' ./charts/base-service/values.yaml; } > ./apps/test/values.yaml
-
-# Rename the base-service chart's values.yaml file to values-example.yaml
-mv ./charts/base-service/values.yaml ./charts/base-service/values-example.yaml
 ```
 
 Notice that we put the contents of the original values file under the alias used for this chart in our example app:

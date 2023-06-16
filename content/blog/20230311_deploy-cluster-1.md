@@ -205,4 +205,21 @@ kubectl delete secret argocd-initial-admin-secret -n argocd
 kubectl rollout restart deployment argocd-server -n argocd
 ```
 
+11. Optional: Add nodeSelector
+
+Add to `./cluster/argocd/values.yaml`:
+
+```yaml
+argo-cd:
+  global:
+    nodeSelector:
+      doks.digitalocean.com/node-pool: pool-cluster
+```
+
+And upgrade the chart:
+
+```sh
+helm upgrade argocd ./argocd --namespace argocd
+```
+
 Congratulations!
